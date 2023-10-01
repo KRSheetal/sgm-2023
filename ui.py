@@ -47,7 +47,7 @@ def get_location():
      :returns: city & country code. """
     city = input('Enter city: ')
     country_code = input('Enter 2 letter country code: ')
-    return Location(city, country_code)
+    return (city, country_code)
 
 def get_location_info():
     '''Write code to extract location info'''
