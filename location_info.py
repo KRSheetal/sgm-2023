@@ -1,8 +1,3 @@
 
-
-class Location:
-
-
-class Location_info:
-    
+'''Write action code as per main.py'''
 

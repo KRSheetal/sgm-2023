@@ -50,7 +50,7 @@ def get_location():
     return Location(city, country_code)
 
 def get_location_info():
-
+    '''Write code to extract location info'''
 
 
 def ask_question(question):
