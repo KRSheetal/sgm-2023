@@ -1,9 +1,10 @@
 """ Program to create and manage a list of books that the user wishes to read, and books that the user has read. """
-from location_info import location, LocationInfo
+
+
 from menu import Menu
 import ui
 
-store = LocationInfo()
+#store = LocationInfo()
 
 def main():
 
@@ -27,37 +28,40 @@ def create_menu():
     return menu
 
 def find_location_info():
-    '''TODO: Ask user to enter city and its 2 letter country code and
-      display population, climate & cost-of-living info of entered location'''
+    return
+#     '''TODO: Ask user to enter city and its 2 letter country code and
+#       display population, climate & cost-of-living info of entered location'''
     
-    # first look in the info in the cache.db, 
-    # if cache.db has the location info
-    #       if the info is 1 hour old make a new API call & replace the location & result in cache.db
-    #       else if it not old, display the location info
-    # else if the location not found in the cache.db, make new API call and save the result in cache.db
+#     # first look in the info in the cache.db, 
+#     # if cache.db has the location info
+#     #       if the info is 1 hour old make a new API call & replace the location & result in cache.db
+#     #       else if it not old, display the location info
+#     # else if the location not found in the cache.db, make new API call and save the result in cache.db
 
-    new_location = ui.get_location()
-    location_info = store.get_location_info()
+#     new_location = ui.get_location()
+#     location_info = store.get_location_info()
 
-    ui.message(f'View information of {new_location} to make a decision')
-    ui.message(location_info)
+#     ui.message(f'View information of {new_location} to make a decision')
+#     ui.message(location_info)
 
-    # TODO: Ask if user wants to bookmark the result. If yes, add to bookmark.db with time of the result displayed
+#     # TODO: Ask if user wants to bookmark the result. If yes, add to bookmark.db with time of the result displayed
     
 
 def view_bookmarked_list():
-    '''TODO: write code to display locations with population, climate & cost-of-living info
-      that are bookmarked list by user'''
-    bookmarks = store.get_all_bookmarked_list()
-    ui.show_bookmarked_list(bookmarks)
+#     '''TODO: write code to display locations with population, climate & cost-of-living info
+#       that are bookmarked list by user'''
+#     bookmarks = store.get_all_bookmarked_list()
+#     ui.show_bookmarked_list(bookmarks)
+    return
     
 
 def change_bookmark():
-    ''' TODO: Display the bookmark list and ask user to unbookmark the location info
-    from the bookmarked list & update the bookmark list'''
-    bookmark_id = ui.get_bookmarked_id()
-    bookmark = store.get_bookmarked_item_by_id(bookmark_id)
-    # TODO: Unbookmark the location
+#     ''' TODO: Display the bookmark list and ask user to unbookmark the location info
+#     from the bookmarked list & update the bookmark list'''
+#     bookmark_id = ui.get_bookmarked_id()
+#     bookmark = store.get_bookmarked_item_by_id(bookmark_id)
+#     # TODO: Unbookmark the location
+    return
 
 
 def quit_program():

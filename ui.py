@@ -1,4 +1,4 @@
-from location_info import location
+#from location_info import location
 
 
 def display_menu_get_choice(menu):
