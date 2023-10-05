@@ -15,6 +15,7 @@ class Menu:
         :param key: the key the user should press to select this option. Can be a single character or a string
         :param description: a text description of the menu option
         :param func: the function that should be invoked when the user selects this option """
+
         self.text_descriptions[key] = description
         self.functions[key] = func
 

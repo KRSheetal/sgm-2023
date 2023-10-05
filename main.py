@@ -28,9 +28,9 @@ def create_menu():
     return menu
 
 def find_location_info():
-    print('12')
+
     new_location = ui.get_location()
-    print(1, new_location)
+
    # location_info = store.get_location_info()
 
     ui.message(f'View information of {new_location} to make a decision')
@@ -45,7 +45,6 @@ def find_location_info():
 #     #       if the info is 1 hour old make a new API call & replace the location & result in cache.db
 #     #       else if it not old, display the location info
 #     # else if the location not found in the cache.db, make new API call and save the result in cache.db
-
 
 
 #     # TODO: Ask if user wants to bookmark the result. If yes, add to bookmark.db with time of the result displayed
