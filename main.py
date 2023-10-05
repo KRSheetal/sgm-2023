@@ -12,6 +12,7 @@ def main():
     while True:
         choice = ui.display_menu_get_choice(menu)
         action = menu.get_action(choice)
+        print(choice)
         action()
         if choice == 'Q':
             break
@@ -27,8 +28,16 @@ def create_menu():
     return menu
 
 def find_location_info():
+    print('12')
+    new_location = ui.get_location()
+    print(1, new_location)
+   # location_info = store.get_location_info()
+
+    ui.message(f'View information of {new_location} to make a decision')
+    # ui.message(location_info)
+
     return
-#     '''TODO: Ask user to enter city and its 2 letter country code and
+#     '''TODO: Ask user to enter city and its 2 letter state code and
 #       display population, climate & cost-of-living info of entered location'''
     
 #     # first look in the info in the cache.db, 
@@ -37,11 +46,7 @@ def find_location_info():
 #     #       else if it not old, display the location info
 #     # else if the location not found in the cache.db, make new API call and save the result in cache.db
 
-#     new_location = ui.get_location()
-#     location_info = store.get_location_info()
 
-#     ui.message(f'View information of {new_location} to make a decision')
-#     ui.message(location_info)
 
 #     # TODO: Ask if user wants to bookmark the result. If yes, add to bookmark.db with time of the result displayed
     
