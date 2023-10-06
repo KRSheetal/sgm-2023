@@ -8,8 +8,8 @@ def get_population(city, state_code):
 state = 'Nebraska'
 for inner_list in data:
     # print(inner_list[0], inner_list[1])
-    pop = inner_list[0]
+    state_population = inner_list[0]
     # print(pop)
     if inner_list[1] == state:
         print(state)
-        print(inner_list[0])
+        print(state_population)
