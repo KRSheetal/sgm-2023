@@ -2,8 +2,9 @@
 
 from menu import Menu
 import ui
+import location_info
 
-store = LocationInfo()
+
 
 def main():
 
@@ -42,7 +43,7 @@ def find_location_info():
 #     # TODO: Ask if user wants to bookmark the result. If yes, add to bookmark.db with time of the result displayed
 
     new_location = ui.get_location()
-    location_info = store.get_location_info(new_location)
+    location_info = location_info.get_location_info(new_location)
     ui.message(f'View information of {new_location} to make a decision')
     ui.message(location_info)
 

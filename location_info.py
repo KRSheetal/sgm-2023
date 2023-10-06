@@ -17,7 +17,8 @@ def main():
         temp_mean_quarterly = climate.get_climate(longitude_latitude)
         
     # Population
-    state = location(state)
+    
+    ######state = location(state)
 
 
         
