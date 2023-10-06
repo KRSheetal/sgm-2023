@@ -50,8 +50,8 @@ def get_location():
     """ Ask user for city and its country code to add to the url
      :returns: city & country code. """
     city = input('Enter city: ')
-    state_code = input('Enter 2 letter state code: ')
-    return (city, state_code)
+    state = input('Enter the state: ')
+    return (city, state)
 
 def get_location_info():
     '''Write code to extract location info'''

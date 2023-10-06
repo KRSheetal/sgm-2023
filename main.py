@@ -3,7 +3,7 @@
 from menu import Menu
 import ui
 
-#store = LocationInfo()
+store = LocationInfo()
 
 def main():
 
@@ -28,18 +28,10 @@ def create_menu():
     return menu
 
 def find_location_info():
-
-    new_location = ui.get_location()
-
-   # location_info = store.get_location_info()
-
-    ui.message(f'View information of {new_location} to make a decision')
-    # ui.message(location_info)
-
-    return
 #     '''TODO: Ask user to enter city and its 2 letter state code and
 #       display population, climate & cost-of-living info of entered location'''
     
+# WE WILL DO THIS AT THE END    
 #     # first look in the info in the cache.db, 
 #     # if cache.db has the location info
 #     #       if the info is 1 hour old make a new API call & replace the location & result in cache.db
@@ -48,6 +40,14 @@ def find_location_info():
 
 
 #     # TODO: Ask if user wants to bookmark the result. If yes, add to bookmark.db with time of the result displayed
+
+    new_location = ui.get_location()
+    location_info = store.get_location_info(new_location)
+    ui.message(f'View information of {new_location} to make a decision')
+    ui.message(location_info)
+
+    return
+
     
 
 def view_bookmarked_list():
