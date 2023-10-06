@@ -24,9 +24,7 @@ def main():
 
 
     # Cost of living
-
-
-        return 
+    pass
 
     def get_longitude_latitude():
         #get Longitute and latitude for the city and state entered
