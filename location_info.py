@@ -5,50 +5,39 @@ import climate
 '''Write action code as per main.py'''
 # API manager
 
-climate_url_temp = 'https://climate-api.open-meteo.com/v1/climate?latitude=52.52&longitude=13.41&start_date=2022-01-01&end_date=2022-12-31&models=FGOALS_f3_H&temperature_unit=fahrenheit&daily=temperature_2m_mean'
+
 population_url_by_state = 'https://api.census.gov/data/2021/pep/population?get=POP_2021,NAME&for=STATE:*'
 
-def main():
-
-    def get_location_info(location):
-    
-    # Climate
-        longitude_latitude = climate.get_longitude_latitude(location)
-        temp_mean_quarterly = climate.get_climate(longitude_latitude)
-        
-    # Population
-    
-    ######state = location(state)
-
-
-        
-
-
-    # Cost of living
-    pass
-
-
-
-    
-
-    # call pop API func
-    # Call COL func
-    # CAll Climate func
-
-#climate.get_climate(city, state)
-    # assmeble data, return
+def get_location_info(location):
    
+    # Climate
+    temp_mean_quarterly = climate.get_climate(location)
+    # print(temp_mean_quarterly)
 
-""" class Climate
+    """ class Climate
 
 #city
 state
 temps - How will this be saved (SQLite)"""
+ 
+        
+    # Population
+    
+    # ######state = location(state)
+
+
+    # # Cost of living
+    # pass
+
+    # assmeble data, return
+    return temp_mean_quarterly # replace with gathered data (climate, population & cost_of_living)
+
+
+    
+   
 
 
 
 
-if __name__ == '__main__':
-    main()
 
 

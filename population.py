@@ -3,7 +3,7 @@ import requests
 url = 'https://api.census.gov/data/2021/pep/population?get=POP_2021,NAME&for=STATE'
 response = requests.get(url)
 data = response.json()
-def get_population(city, state_code):
+def get_population(city, state):
     pass
 state = 'Nebraska'
 for inner_list in data:
