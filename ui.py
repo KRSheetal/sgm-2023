@@ -4,7 +4,6 @@
 
 
 def display_menu_get_choice(menu):
-    print(menu)
     """ Displays all of the menu options, checks that the user enters a valid choice and returns the choice.
      :param menu: the menu to display
      :returns: the user's choice """

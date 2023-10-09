@@ -29,8 +29,16 @@ def find_location_info():
     
     location = ui.get_location()
     location_data = location_info.get_location_info(location)
+    #print(location_data)
     ui.message(f'View information of {location[0]} {location[1]} to make a decision')
-    ui.message(location_data)
+    for category, data in location_data.items():
+        if category == 'Temperature':
+            ui.message(f'The quarterly temperature of {location[0]} in the year 2022 is \n {data}:')
+        elif category == 'Population':
+            ui.message(f'The population of the {location[1]} is: {data}')
+        else:
+            ui.message(f'The {category} is: $')
+
 
 # WE WILL DO THIS AT THE END    
 #     # first look in the info in the cache.db, 
