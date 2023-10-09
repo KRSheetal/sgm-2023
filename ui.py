@@ -4,7 +4,6 @@
 
 
 def display_menu_get_choice(menu):
-    print(menu)
     """ Displays all of the menu options, checks that the user enters a valid choice and returns the choice.
      :param menu: the menu to display
      :returns: the user's choice """
@@ -12,8 +11,7 @@ def display_menu_get_choice(menu):
         print(menu)
         choice = input('Enter choice? ').upper()  # .upper() converts the input string to upper case to remove case sensitivity.
                                                   # Quit, and any future options that use a letter input, can now be done
-                                                  # with a lower case or upper case input.
-        print(f'ui2{choice}')                                        
+                                                  # with a lower case or upper case input.                                      
         if menu.is_valid(choice):
 
             return choice
@@ -50,6 +48,7 @@ def get_location():
     """ Ask user for city and its country code to add to the url
      :returns: city & country code. """
     city = input('Enter city: ')
+    
     state = input('Enter the state: ')
     return (city, state)
 
