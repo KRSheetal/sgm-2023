@@ -7,8 +7,7 @@ climate_url_temp = 'https://climate-api.open-meteo.com/v1/climate?&start_date=20
 def get_climate(location):
     # get longitude and latitude for the city and state as this API requires longitude 
     # and latitude to show the climate data
-    longitude = get_longitude(location)
-    latitude = get_latitude(location)
+    latitude,longitude = get_coordinates(location)
         
     # prepare API url to get climate data
     query = {'latitude':latitude,'longitude':longitude}
@@ -20,23 +19,15 @@ def get_climate(location):
     return data # replace with temperature info
     
 
-def get_longitude(location):
-    # get Longitute for the city and state entered
+def get_coordinates(location):
+    # get latitude and longitude for the city and state entered
     place = f'{location[0]} {location[1]}' # concatinate city and state to make one string
     geolocator = Nominatim(user_agent="city_co-ordinates")
     location = geolocator.geocode(place.replace(",", ""))
-    long = round(location.longitude,2) # round off the number
+    longitude = location.longitude
+    latitude = location.latitude
             
-    return long
-
-def get_latitude(location):
-    # get latitude for the city and state entered
-    place = f'{location[0]} {location[1]}' # concatinate city and state to make one string
-    geolocator = Nominatim(user_agent="city_co-ordinates")
-    location = geolocator.geocode(place.replace(",", ""))
-    lati = round(location.latitude,2) # round off the number
-            
-    return lati
+    return latitude, longitude
 
 # added this for debugging purpose
 # location = ('minneapolis', 'minnesota')
