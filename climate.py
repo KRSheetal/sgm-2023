@@ -13,10 +13,34 @@ def get_climate(location):
     query = {'latitude':latitude,'longitude':longitude}
     response = requests.get(climate_url_temp, params=query)
     data = response.json()
+    
+    result_time = data['daily']['time']
+    result_temp = data['daily']['temperature_2m_mean']
+
+    dict = {}
+        
+    for time_data, temp_data in zip(result_time, result_temp):
+        dict[time_data] = temp_data
+    
+    for time in dict.keys():
+        if time == '2022-03-30':
+            Q1 = dict[time]
+    
+        if time == '2022-06-30':
+            Q2 = dict[time]
+    
+        if time == '2022-09-30':
+            Q3 = dict[time]
+  
+        if time == '2022-12-30':
+            Q4 = dict[time]
+
+            
+    quarterly_temp = {'Spring':Q1, 'Summer': Q2, 'Fall': Q3, 'Winter': Q4}
 
     #TODO write code to extract temperature_2m_mean quarterly and return to location_info.py
 
-    return data # replace with temperature info
+    return quarterly_temp # replace with temperature info
     
 
 def get_coordinates(location):
@@ -29,11 +53,12 @@ def get_coordinates(location):
             
     return latitude, longitude
 
-# added this for debugging purpose
+
+# # added this for debugging purpose
 # location = ('minneapolis', 'minnesota')
 
 # climate_extracted_data = get_climate(location)
-# print (f'Data from climate.py {climate_extracted_data}') 
+# #print (f'Data from climate.py {climate_extracted_data}') 
 
 
 
