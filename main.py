@@ -37,7 +37,7 @@ def find_location_info():
         elif category == 'Population':
             ui.message(f'The population of the {location[1]} is: {data}')
         else:
-            ui.message(f'The {category} is: $')
+            ui.message(f'The {category} is: ${data}')
 
 
 # WE WILL DO THIS AT THE END    
