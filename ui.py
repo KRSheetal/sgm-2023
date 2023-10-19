@@ -27,9 +27,13 @@ def message(msg):
 def bookmark_info():
     """Ask user if the Location information needs to be bookmarked"""
     bookmark_answer = input("Do you want to bookmark? (yes/no): ")
-    if bookmark_answer.capitalize == 'Yes':
+    print(bookmark_answer)
+    print('answer')
+    if bookmark_answer == 'YES':
+        print('yes')
         return True
     else:
+        print('no')
         return False
 
 
