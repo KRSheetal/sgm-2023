@@ -3,6 +3,7 @@
 from menu import Menu
 import ui
 import location_info
+import bookmark_store
 
 def main():
 
@@ -38,7 +39,14 @@ def find_location_info():
             ui.message(f'The population of the {location[1]} is: {data}')
         else:
             ui.message(f'The {category} is: ${data}')
-
+# TODO: Ask if user wants to bookmark the result. If yes, add to bookmark.db with time of the result displayed
+    bookmark_information = ui.bookmark_info()
+    if bookmark_information:
+        bookmark_store(location_data)
+        ui.message('Location information Bookmarked!')
+    else:
+        return     
+    
 
 # WE WILL DO THIS AT THE END    
 #     # first look in the info in the cache.db, 
@@ -47,8 +55,7 @@ def find_location_info():
 #     #       else if it not old, display the location info
 #     # else if the location not found in the cache.db, make new API call and save the result in cache.db
 
-# TODO: Ask if user wants to bookmark the result. If yes, add to bookmark.db with time of the result displayed
-    return
+
   
 
 def view_bookmarked_list():

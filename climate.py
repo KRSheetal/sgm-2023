@@ -86,8 +86,8 @@ def get_coordinates(location):
     return latitude, longitude
 
 # # added this for debugging purpose
-location = ('Minneapolis', 'Minnesota')
-print(get_climate(location))
+# location = ('Minneapolis', 'Minnesota')
+# print(get_climate(location))
 
 # climate_extracted_data = get_climate(location)
 # print (f'Data from climate.py {climate_extracted_data}')

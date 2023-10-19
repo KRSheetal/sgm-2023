@@ -24,6 +24,14 @@ def message(msg):
      :param msg: the message to print"""
     print(msg)
 
+def bookmark_info():
+    """Ask user if the Location information needs to be bookmarked"""
+    bookmark_answer = input("Do you want to bookmark? (yes/no): ")
+    if bookmark_answer.capitalize == 'Yes':
+        return True
+    else:
+        return False
+
 
 def show_bookmarked_list(books):
     '''Display bookmarked list or 'No bookmark message'''
