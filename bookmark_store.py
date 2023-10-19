@@ -7,10 +7,11 @@ import sqlite3
 import os 
 import json
 from datetime import datetime
+import ui
 
 db = os.path.join('database', 'bookmark_list.db')
 
-# city = 'denver'
+# city = 'colorado springs'
 # state = 'colorado'
 # location = (city, state)
 
@@ -38,29 +39,28 @@ def bookmark_location_info(location, data):
 def create_bookmark_table():
     bookmark_list = 'CREATE TABLE IF NOT EXISTS bookmark_list (city TEXT, state TEXT, cost_of_living INTEGER, population INTEGER, temperature STRING, date TEXT, UNIQUE( city COLLATE NOCASE, state COLLATE NOCASE))'
     con = sqlite3.connect(db)
-       
     with con:
         con.execute(bookmark_list)
         #con.close()
 
 
-# def get_all_books(self):
-#             """ :returns entire book list """
+def get_all_bookmarked_list():
+#             """ :returns entire bookmark list """
+    conn = sqlite3.connect(db) # connect to sqlite
+    cursor = conn.cursor() # create cursor object
+
+    print('Location Information')
+
+    data = cursor.execute('''Select * FROM bookmark_list''')
+
+    ui.show_bookmarked_list(data)
     
-#             get_all_books_sql = 'SELECT rowid, * FROM books'
+    conn.commit()
+    conn.close()
 
-#             con = sqlite3.connect(db)
-#             con.row_factory = sqlite3.Row
-#             rows = con.execute(get_all_books_sql)
-#             books = []
+   
+ # Source: https://www.geeksforgeeks.org/how-to-show-all-columns-in-the-sqlite-database-using-python/
 
-#             for r in rows:
-#                 book = Book(r['title'], r['author'], r['read'], r['rowid'])
-#                 books.append(book)
-
-#             con.close()            
-            
-#             return books
 
 
 class BookMarkError(Exception):
@@ -69,4 +69,5 @@ class BookMarkError(Exception):
 
 
 # bookmark_location_info(location, data)
+# get_all_bookmarked_list()
 

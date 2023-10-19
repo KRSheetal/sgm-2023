@@ -19,8 +19,8 @@ def main():
 def create_menu():
     menu = Menu()
     menu.add_option('1', 'Find location information', find_location_info)
-    menu.add_option('2', 'Update Bookmarked status', change_bookmark)
-    menu.add_option('3', 'View Bookmarked list', view_bookmarked_list) 
+    # menu.add_option('2', 'Update Bookmarked status', change_bookmark)
+    menu.add_option('2', 'View Bookmarked list', view_bookmarked_list) 
     menu.add_option('Q', 'Quit', quit_program)
     return menu
 
@@ -58,21 +58,11 @@ def find_location_info():
  
 
 def view_bookmarked_list():
-#     '''TODO: write code to display locations with population, climate & cost-of-living info
+#     ''' write code to display locations with population, climate & cost-of-living info
 #       that are bookmarked list by user'''
-#     bookmarks = store.get_all_bookmarked_list()
-#     ui.show_bookmarked_list(bookmarks)
+    bookmark_store.get_all_bookmarked_list()
     return
     
-
-def change_bookmark():
-#     ''' TODO: Display the bookmark list and ask user to unbookmark the location info
-#     from the bookmarked list & update the bookmark list'''
-#     bookmark_id = ui.get_bookmarked_id()
-#     bookmark = store.get_bookmarked_item_by_id(bookmark_id)
-#     # TODO: Unbookmark the location
-    return
-
 
 def quit_program():
     ui.message('Thanks and bye!')
