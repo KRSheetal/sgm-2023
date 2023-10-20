@@ -67,7 +67,7 @@ def get_climate(location):
         # if time == '2022-12-30':
         #     Q4 = time_temp_dictionary[time]
 
-    quarterly_temp = {'January': january_average, 'April': april_average, 'August': august_average, 'November': november_average}
+    quarterly_temp = {'January': round(january_average), 'April': round(april_average), 'August': round(august_average), 'November': round(november_average)}
     # quarterly_temp = {'August': august_average, 'November': november_average}
 
     # TODO write code to extract temperature_2m_mean quarterly and return to location_info.py

@@ -26,31 +26,30 @@ def message(msg):
 
 def bookmark_info():
     """Ask user if the Location information needs to be bookmarked"""
-    bookmark_answer = input("Do you want to bookmark? (yes/no): ")
-    if bookmark_answer.capitalize == 'Yes':
-        return True
-    else:
-        return False
-
-
-def show_bookmarked_list(books):
-    '''Display bookmarked list or 'No bookmark message'''
-    # TODO : show bookmarked list. If empty, display 'No bookmark' message
-
-def get_bookmarked_id():
-    """ Ask for ID, validate to ensure is positive integer
-    :returns: the ID value """
+  
     while True:
         try:
-            id = int(input('Enter book ID: '))
-            if id > 0:
-                return id
+            bookmark_answer = input("Do you want to bookmark? (yes/no): ")
+            if bookmark_answer == 'YES':
+                return True
+            elif bookmark_answer == 'NO':
+                return False
             else:
-                print('Please enter a positive number.')
-
+                bookmark_answer = input('Please type yes or no only: ')
         except ValueError:
-            print('Please enter a number.')
-   
+            print('Please enter a alphabetical characters')
+                
+
+def show_bookmarked_list(data):
+    '''Display bookmarked list or 'No bookmark message'''
+    index = 0
+    if data:
+        for row in data:
+            print(index, row)
+            index += 1
+    else:
+        print('No bookmarks to display')
+
 
 def get_location():
     """ Ask user for city and its country code to add to the url
@@ -60,8 +59,6 @@ def get_location():
     state = input('Enter the state: ')
     return (city, state)
 
-def get_location_info():
-    '''Write code to extract location info'''
 
 
 def ask_question(question):

@@ -19,8 +19,8 @@ def main():
 def create_menu():
     menu = Menu()
     menu.add_option('1', 'Find location information', find_location_info)
-    menu.add_option('2', 'Update Bookmarked status', change_bookmark)
-    menu.add_option('3', 'View Bookmarked list', view_bookmarked_list) 
+    # menu.add_option('2', 'Update Bookmarked status', change_bookmark)
+    menu.add_option('2', 'View Bookmarked list', view_bookmarked_list) 
     menu.add_option('Q', 'Quit', quit_program)
     return menu
 
@@ -34,17 +34,18 @@ def find_location_info():
     ui.message(f'View information of {location[0]} {location[1]} to make a decision')
     for category, data in location_data.items():
         if category == 'Temperature':
-            ui.message(f'The quarterly temperature of {location[0]} in the year 2022 is \n {data}:')
+            ui.message(f'The quarterly temperature(F) of {location[0]} in the year 2022 is \n {data}:')
         elif category == 'Population':
             ui.message(f'The population of the {location[1]} is: {data}')
         else:
             ui.message(f'The {category} is: ${data}')
 # TODO: Ask if user wants to bookmark the result. If yes, add to bookmark.db with time of the result displayed
     bookmark_information = ui.bookmark_info()
-    if bookmark_information:
-        bookmark_store(location_data)
+    if bookmark_information == True:
+        bookmark_store.bookmark_location_info(location, location_data)
         ui.message('Location information Bookmarked!')
     else:
+        ui.message('Thank you!')
         return     
     
 
@@ -54,26 +55,14 @@ def find_location_info():
 #     #       if the info is 1 hour old make a new API call & replace the location & result in cache.db
 #     #       else if it not old, display the location info
 #     # else if the location not found in the cache.db, make new API call and save the result in cache.db
-
-
-  
+ 
 
 def view_bookmarked_list():
-#     '''TODO: write code to display locations with population, climate & cost-of-living info
+#     ''' write code to display locations with population, climate & cost-of-living info
 #       that are bookmarked list by user'''
-#     bookmarks = store.get_all_bookmarked_list()
-#     ui.show_bookmarked_list(bookmarks)
+    bookmark_store.get_all_bookmarked_list()
     return
     
-
-def change_bookmark():
-#     ''' TODO: Display the bookmark list and ask user to unbookmark the location info
-#     from the bookmarked list & update the bookmark list'''
-#     bookmark_id = ui.get_bookmarked_id()
-#     bookmark = store.get_bookmarked_item_by_id(bookmark_id)
-#     # TODO: Unbookmark the location
-    return
-
 
 def quit_program():
     ui.message('Thanks and bye!')
