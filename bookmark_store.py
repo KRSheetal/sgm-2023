@@ -17,7 +17,9 @@ db = os.path.join('database', 'bookmark_list.db')
 
 # data = {'Temperature': {'January': 56.32, 'April': 76.33, 'August': 64.33, 'November': 32.78}, 'Population': 6783, 'Cost_of_Living': 63732}
 
-
+class BookMarkError(Exception):
+    """ For BookMarkStore errors. """
+    pass
 
 def bookmark_location_info(location, data):
    
@@ -60,12 +62,6 @@ def get_all_bookmarked_list():
 
    
  # Source: https://www.geeksforgeeks.org/how-to-show-all-columns-in-the-sqlite-database-using-python/
-
-
-
-class BookMarkError(Exception):
-    """ For BookMarkStore errors. """
-    pass
 
 
 # bookmark_location_info(location, data)
