@@ -20,60 +20,42 @@ def get_climate(location):
 
     time_temp_dictionary = {}
 
+    # Create a dictionary with date(Key) & Temperature(Value)
     for time_data, temp_data in zip(result_time, result_temp):
         time_temp_dictionary[time_data] = temp_data
-    # print(time_temp_dictionary)
 
-    # extract month number from the date
-    # for month in time_temp_dictionary:
-    #     month_number = month[5:7]
-    #     print(month_number)
+    # Find temperature average of the months in all 4 seasons
+    january = '01'
+    january_average = get_monthwise_temperature(time_temp_dictionary, january)
 
-        # january = '01'
-        # january_temps = []
-        # if month_number == january:
-        #     january_dict = {k: v for k, v in time_temp_dictionary.items() if month_number in k[5:7]}
-        #     for jan_temp in january_dict.values():
-        #         january_temps.append(jan_temp)
-        #     january_average = sum(january_temps) / len(january_temps)
-    
-    # print(month_number)
-   
+    april = '04'
+    april_average = get_monthwise_temperature(time_temp_dictionary, april)
 
-        january = '01'
-        january_average = get_monthwise_temperature(time_temp_dictionary, january)
+    august = '08'
+    august_average = get_monthwise_temperature(time_temp_dictionary, august)
 
-        april = '04'
-        april_average = get_monthwise_temperature(time_temp_dictionary, april)
+    november = '11'
+    november_average = get_monthwise_temperature(time_temp_dictionary, november)
 
-        # august = '08'
-        # august_average = get_monthwise_temperature(time_temp_dictionary, august)
-
-        # november = '11'
-        # november_average = get_monthwise_temperature(time_temp_dictionary, november)
-
-       # quarterly_temp = {'January': round(january_average), 'April': round(april_average), 'August': round(august_average), 'November': round(november_average)}
-        print(january_average)
-        print(april_average)
-        return #quarterly_temp  # replace with temperature info
+    # Gather the month average temperature data
+    quarterly_temp = {'January': round(january_average), 'April': round(april_average), 'August': round(august_average), 'November': round(november_average)}
+    return quarterly_temp  # replace with temperature info
 
 def get_monthwise_temperature(time_temp_dictionary, month_num):
-        month_number = ''
-        print(month_num, month_number)
-        for date, temp in time_temp_dictionary.items():
-            month_number = date[5:7]
+        month_number = 0
+        for month in time_temp_dictionary:
+            month_number = month[5:7] # extract month number from the date(key)
                 
             month_temps = []
-            print(month_num, month_number)
-            if month_number == month_num:
+            
+            if month_number == month_num: # if month_num found
+                # create month: temperature dictionary
                 month_dict = {k: v for k, v in time_temp_dictionary.items() if month_number in k[5:7]}
+                # create a list with temperatures
                 for month_temp in month_dict.values():
                     month_temps.append(month_temp)
                 month_average = sum(month_temps) / len(month_temps)
-        
                 return month_average
-        print(month_number)
-
 
 def get_coordinates(location):
     # get latitude and longitude for the city and state entered
@@ -85,9 +67,9 @@ def get_coordinates(location):
 
     return latitude, longitude
 
-# # added this for debugging purpose
-location = ('Minneapolis', 'Minnesota')
+# # # added this for debugging purpose
+# location = ('Tampa', 'Florida')
 
 
-climate_extracted_data = get_climate(location)
-print (f'Data from climate.py {climate_extracted_data}')
+# climate_extracted_data = get_climate(location)
+# print (f'Data from climate.py {climate_extracted_data}')
