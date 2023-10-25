@@ -17,6 +17,11 @@ db = os.path.join('database', 'bookmark_list.db')
 
 # data = {'Temperature': {'January': 56.32, 'April': 76.33, 'August': 64.33, 'November': 32.78}, 'Population': 6783, 'Cost_of_Living': 63732}
 
+
+class BookMarkError(Exception):
+    """ For BookMarkStore errors. """
+    pass
+
 # Create bookmark table with required columns
 def create_bookmark_table():
     bookmark_list = 'CREATE TABLE IF NOT EXISTS bookmark_list (city TEXT, state TEXT, cost_of_living INTEGER, population INTEGER, temperature STRING, date TEXT, UNIQUE( city COLLATE NOCASE, state COLLATE NOCASE))'
@@ -24,7 +29,7 @@ def create_bookmark_table():
     with con:
         con.execute(bookmark_list)
         # con.close()
-
+        
 
 def bookmark_location_info(location, data):
    
@@ -32,7 +37,9 @@ def bookmark_location_info(location, data):
     temp_dict_column = json.dumps(Temp_dict) # convert to string
     
     create_bookmark_table()
-    # save the location information in bookmark table if does not exist
+    
+    # save the location information in bookmark table if does not already exist
+
     insert_sql = 'INSERT OR IGNORE INTO bookmark_list (city, state, cost_of_living, population, temperature, date) VALUES (?, ?, ?, ?, ?,? )'
     try:
         with sqlite3.connect(db) as con:
@@ -59,12 +66,6 @@ def get_all_bookmarked_list():
 
    
  # Source: https://www.geeksforgeeks.org/how-to-show-all-columns-in-the-sqlite-database-using-python/
-
-
-
-class BookMarkError(Exception):
-    """ For BookMarkStore errors. """
-    pass
 
 
 # bookmark_location_info(location, data)
