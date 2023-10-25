@@ -25,8 +25,8 @@ def bookmark_location_info(location, data):
     temp_dict_column = json.dumps(Temp_dict) # convert to string
     
     create_bookmark_table()
-    # save the location information in bookmark table
-    insert_sql = 'INSERT INTO bookmark_list (city, state, cost_of_living, population, temperature, date) VALUES (?, ?, ?, ?, ?,? )'
+    # save the location information in bookmark table if does not exist
+    insert_sql = 'INSERT OR IGNORE INTO bookmark_list (city, state, cost_of_living, population, temperature, date) VALUES (?, ?, ?, ?, ?,? )'
     try:
         with sqlite3.connect(db) as con:
             res = con.execute(insert_sql, (location[0], location[1], data.get('Cost_of_Living'),data.get('Population'), temp_dict_column, datetime.now()))
