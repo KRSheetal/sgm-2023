@@ -60,8 +60,8 @@ def find_location_info():
 def view_bookmarked_list():
 #     ''' write code to display locations with population, climate & cost-of-living info
 #       that are bookmarked list by user'''
-    bookmark_store.get_all_bookmarked_list()
-    return
+    bookmarks = bookmark_store.get_all_bookmarked_list()
+    ui.show_bookmarked_list(bookmarks)
     
 
 def quit_program():
