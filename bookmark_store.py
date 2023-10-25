@@ -23,7 +23,7 @@ def create_bookmark_table():
     con = sqlite3.connect(db)
     with con:
         con.execute(bookmark_list)
-        con.close()
+        # con.close()
 
 
 def bookmark_location_info(location, data):
