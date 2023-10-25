@@ -46,11 +46,13 @@ def get_date(data):
 def get_temperature(data):
     return data['daily']['temperature_2m_mean']
 
+
 def create_date_temp_dict(result_time, result_temp):
     time_temp_dictionary = {}
     for time_data, temp_data in zip(result_time, result_temp):
         time_temp_dictionary[time_data] = temp_data
     return time_temp_dictionary
+
 
 def get_monthwise_temperature(time_temp_dictionary, month_num):
         month_number = 0
@@ -65,7 +67,9 @@ def get_monthwise_temperature(time_temp_dictionary, month_num):
                 # create a list with temperatures
                 for month_temp in month_dict.values():
                     month_temps.append(month_temp)
+
                 month_average = round(sum(month_temps) / len(month_temps))
+
                 return month_average
 
 def get_coordinates(location):
@@ -79,9 +83,7 @@ def get_coordinates(location):
 
     return latitude, longitude
 
-# added this for debugging purpose
-# location = ('Minneapolis', 'Minnesota')
-# print(get_climate(location))
+
 
 # climate_extracted_data = get_climate(location)
 # print (f'Data from climate.py {climate_extracted_data}')
