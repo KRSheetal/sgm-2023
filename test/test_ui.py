@@ -14,7 +14,7 @@ class TestUI(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        bookmark_store.db = os.path.join('database', 'test_bookmark_list.db')
+        bookmark_store.db = os.path.join('../database', 'test_bookmark_list.db')
         # BookStore.instance = None
 
     @patch('builtins.input', side_effect=['1'])
