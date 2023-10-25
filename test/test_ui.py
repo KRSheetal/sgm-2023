@@ -14,7 +14,7 @@ class TestUI(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        bookmark_store.db = os.path.join('database', 'test_bookmark_list.db')
+        bookmark_store.db = os.path.join('../database', 'test_bookmark_list.db')
         # BookStore.instance = None
 
     @patch('builtins.input', side_effect=['1'])
@@ -49,11 +49,11 @@ class TestUI(TestCase):
     #     mock_print.assert_any_call(location1)
     #     mock_print.assert_any_call(location2)
 
-    @patch('builtins.input', side_effect=['city', 'state'])
+    @patch('builtins.input', side_effect=['City', 'State'])
     def test_get_location(self, mock_input):
         location = ui.get_location()
-        self.assertEqual('city', location[0])
-        self.assertEqual('state', location[1])
+        self.assertEqual('City', location[0])
+        self.assertEqual('State', location[1])
 
     @patch('builtins.input', side_effect=['pizza'])
     @patch('builtins.print')

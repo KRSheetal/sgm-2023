@@ -1,22 +1,16 @@
-#from location_info import location
-
-
-
-
+import state_name_state_code_dictionary
+state_code_dict = state_name_state_code_dictionary.states_and_state_codes
 def display_menu_get_choice(menu):
-    """ Displays all of the menu options, checks that the user enters a valid choice and returns the choice.
+    """ Displays all the menu options, checks that the user enters a valid choice and returns the choice.
      :param menu: the menu to display
      :returns: the user's choice """
     while True:
-        print(menu)
-        choice = input('Enter choice? ').upper()  # .upper() converts the input string to upper case to remove case sensitivity.
-                                                  # Quit, and any future options that use a letter input, can now be done
-                                                  # with a lower case or upper case input.                                      
+        message(menu)
+        choice = input('Enter choice? ').upper()
         if menu.is_valid(choice):
-
             return choice
         else:
-            print('Not a valid choice, try again.')
+            message('Not a valid choice, please enter number or Q to quit.')
 
 
 def message(msg):
@@ -24,40 +18,51 @@ def message(msg):
      :param msg: the message to print"""
     print(msg)
 
+
 def bookmark_info():
-    """Ask user if the Location information needs to be bookmarked"""
-  
+    """ Ask user if they want the location information to be bookmarked """
+
+
     while True:
-        try:
-            bookmark_answer = input("Do you want to bookmark? (yes/no): ")
-            if bookmark_answer == 'YES':
-                return True
-            elif bookmark_answer == 'NO':
-                return False
-            else:
-                bookmark_answer = input('Please type yes or no only: ')
-        except ValueError:
-            print('Please enter a alphabetical characters')
-                
+        bookmark_answer = input('Do you want to bookmark? (yes/no): ').upper()
+        if bookmark_answer == 'YES':
+            return True
+        elif bookmark_answer == 'NO':
+            return False
+        else:
+            message('Please enter Yes or No: ')
+
 
 def show_bookmarked_list(data):
-    '''Display bookmarked list or 'No bookmark message'''
-    index = 0
+    """ Display bookmarked list or 'No bookmark message' """
+    # index = 0
     if data:
         for row in data:
-            print(index, row)
-            index += 1
+            message(row)
     else:
-        print('No bookmarks to display')
+        message('No bookmarks to display')
 
 
 def get_location():
-    """ Ask user for city and its country code to add to the url
-     :returns: city & country code. """
+    """ Ask user for city and its state then returns city & state in title case"""
+    # state_exists = ''
+    # city = input('Enter city: ')
+    # state = input('Enter the state: ')
+    # for state_name, state_code in state_code_dict.items():
+    #     if state_name.upper() == state.upper():
+    #         state_exists = 'True'
+    #     else:
+    #         state_exists = 'False'
+    #
+    # if state_exists == 'True':
+    #     return city.title(), state
+    # elif state_exists == 'False':
+    #     message('Invalid city or state entry')
+    #     exit()
+
     city = input('Enter city: ')
-    
     state = input('Enter the state: ')
-    return (city, state)
+    return city.title(), state.title()
 
 
 

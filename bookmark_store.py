@@ -17,9 +17,19 @@ db = os.path.join('database', 'bookmark_list.db')
 
 # data = {'Temperature': {'January': 56.32, 'April': 76.33, 'August': 64.33, 'November': 32.78}, 'Population': 6783, 'Cost_of_Living': 63732}
 
+
 class BookMarkError(Exception):
     """ For BookMarkStore errors. """
     pass
+
+# Create bookmark table with required columns
+def create_bookmark_table():
+    bookmark_list = 'CREATE TABLE IF NOT EXISTS bookmark_list (city TEXT, state TEXT, cost_of_living INTEGER, population INTEGER, temperature STRING, date TEXT, UNIQUE( city COLLATE NOCASE, state COLLATE NOCASE))'
+    con = sqlite3.connect(db)
+    with con:
+        con.execute(bookmark_list)
+        # con.close()
+        
 
 def bookmark_location_info(location, data):
    
@@ -38,14 +48,6 @@ def bookmark_location_info(location, data):
             raise BookMarkError(f'Error - this bookmark is already in the database. {data}') from e
     finally:
             con.close()
-
-# Create bookmark table with required columns 
-def create_bookmark_table():
-    bookmark_list = 'CREATE TABLE IF NOT EXISTS bookmark_list (city TEXT, state TEXT, cost_of_living INTEGER, population INTEGER, temperature STRING, date TEXT, UNIQUE( city COLLATE NOCASE, state COLLATE NOCASE))'
-    con = sqlite3.connect(db)
-    with con:
-        con.execute(bookmark_list)
-        #con.close()
 
 
 def get_all_bookmarked_list():
