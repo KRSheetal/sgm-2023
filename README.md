@@ -29,3 +29,6 @@ Use Q to quit program.
 Uses SQLite3 database to store data.
 
 
+Instruction to run the app:
+
+
