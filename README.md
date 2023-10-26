@@ -22,15 +22,10 @@ Features
 7: This program lets user view the bookmark list.
 8: This program lets user quit the program by typing Q (Not case-sensitive)
 
-How To Run Program:
+
+Uses SQLite3 database to store data.
+
+Instruction to Run the App:
     - Set up environmental variable sent over slack
     - Run main.py
     - Use Q to quit program.
-
-<<<<<<< HEAD
-Uses SQLite3 database to store data.
-=======
-Instruction to run the app:
-
-
->>>>>>> 5aa8c09e8f47aff7475bacdef43a4d26af5f65a6
