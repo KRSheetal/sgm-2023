@@ -27,4 +27,10 @@ How To Run Program:
     - Run main.py
     - Use Q to quit program.
 
+<<<<<<< HEAD
 Uses SQLite3 database to store data.
+=======
+Instruction to run the app:
+
+
+>>>>>>> 5aa8c09e8f47aff7475bacdef43a4d26af5f65a6
