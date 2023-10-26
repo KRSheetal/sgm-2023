@@ -27,5 +27,6 @@ Uses SQLite3 database to store data.
 
 Instruction to Run the App:
     - Set up environmental variable sent over slack
+    - Add a directory for the database to be added to called database in the base directory
     - Run main.py
     - Use Q to quit program.
